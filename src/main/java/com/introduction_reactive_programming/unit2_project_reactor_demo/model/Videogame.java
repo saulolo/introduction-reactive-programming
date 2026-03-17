@@ -21,4 +21,28 @@ public class Videogame {
     String officialWebsite;
     Boolean isDiscount;
     Integer totalSold;
+
+
+    @Override
+    public String toString() {
+        StringBuilder reviewDetails = new StringBuilder();
+        if (reviews == null || reviews.isEmpty()) {
+            reviewDetails.append("No hay reviews.");
+        } else {
+            reviewDetails.append(reviews.size()).append(" review(s)");
+            reviews.forEach(reviewDetails::append);
+        }
+
+        return "\n---------------------------------------" +
+                "\n  🎮 " + name +
+                "\n---------------------------------------" +
+                "\n  💰 Precio       : $" + price +
+                "\n  🎯 Consola      : " + console +
+                "\n  🏷️ Descuento    : " + (isDiscount ? "Yes" : "No") +
+                "\n  📦 Total ventas : " + totalSold +
+                "\n  🌐 Website      : " + officialWebsite +
+                "\n  📝 Reviews      : " + reviewDetails +
+                "\n---------------------------------------";
+    }
+
 }
